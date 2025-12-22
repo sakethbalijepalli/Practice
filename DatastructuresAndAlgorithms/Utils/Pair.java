@@ -3,7 +3,7 @@ package DatastructuresAndAlgorithms.Utils;
 public class Pair {
 
     public int key;
-    String value;
+    public String value;
 
     public Pair(int key, String value){
         this.key = key;
