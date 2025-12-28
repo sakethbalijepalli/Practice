@@ -1,6 +1,5 @@
 package LeetcodePractice;
 
-import java.util.Arrays;
 
 public class LongestCommonPrefix {
 
