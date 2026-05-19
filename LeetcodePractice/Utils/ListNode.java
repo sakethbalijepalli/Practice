@@ -9,6 +9,11 @@ public class ListNode {
         this.val = val;
     }
 
+    public ListNode(int val, ListNode node) {
+        this.val = val;
+        this.next = node;
+    }
+
     @Override
     public String toString() {
         return "ListNode{" +
