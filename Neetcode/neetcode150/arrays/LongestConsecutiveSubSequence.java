@@ -1,0 +1,34 @@
+package Neetcode.neetcode150.arrays;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class LongestConsecutiveSubSequence {
+    void main() {
+        System.out.println(longestConsecutive(new int[]{2,20,4,10,3,4,5}));
+    }
+
+    public int longestConsecutive(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+
+        Set<Integer> set = Arrays.stream(nums)
+                .boxed()
+                .collect(Collectors.toSet());
+        int longestStreak = 0;
+        for (int num : nums) {
+            if (!set.contains(num - 1)) {
+                int currentNum = num;
+                int currentStreak = 1;
+                while (set.contains(currentNum + 1)) {
+                    currentNum += 1;
+                    currentStreak += 1;
+                }
+
+                longestStreak = Math.max(longestStreak, currentStreak);
+            }
+        }
+        return longestStreak;
+    }
+}
