@@ -1,29 +1,15 @@
 package Neetcode.neetcode150.heap;
 
+import java.util.Arrays;
 import java.util.PriorityQueue;
 
-public class LastStoneWeight {
+public class KClosest {
+
     void main() {
-        System.out.println(lastStoneWeight(new int[]{2,3,6,2,4}));
+        int[][] arr = new int[][]{{0,2},{2,2},{2,0}};
+        System.out.println(Arrays.deepToString(kClosest(arr, 2)));
     }
 
-
-    public int lastStoneWeight(int[] stones) {
-        if (stones == null || stones.length == 0) return 0;
-
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> Integer.compare(b, a));
-        for (int stone : stones) maxHeap.offer(stone);
-
-        while (maxHeap.size() > 1) {
-            int stone1 = maxHeap.poll();
-            int stone2 = maxHeap.poll();
-            if (stone1 != stone2) {
-                maxHeap.offer(stone1 - stone2);
-            }
-        }
-
-        return maxHeap.isEmpty() ? 0 : maxHeap.peek();
-    }
 
     public int[][] kClosest(int[][] points, int k) {
         // sqrt((x1 - x2)^2 + (y1 - y2)^2))
