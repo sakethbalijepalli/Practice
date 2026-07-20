@@ -1,17 +1,18 @@
 package Neetcode.neetcode150.backtracking;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class SubSets {
+public class SubSetTwo {
     void main() {
-        System.out.println(subsets(new int[]{1,2,3}));
+        System.out.println(subsetsWithDup(new int[]{1,2,1}));
     }
-
-    public List<List<Integer>> subsets(int[] nums) {
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         int i = 0;
         List<Integer> arr = new ArrayList<>();
+        Arrays.sort(nums);
         addSubsets(nums,res,i,arr);
         return res;
     }
@@ -24,6 +25,9 @@ public class SubSets {
         arr.add(nums[i]);
         addSubsets(nums,res,i + 1,arr);
         arr.removeLast();
+        while (i < nums.length - 1 && nums[i + 1] == nums[i]){
+            i++;
+        }
         addSubsets(nums,res,i + 1,arr);
     }
 }
