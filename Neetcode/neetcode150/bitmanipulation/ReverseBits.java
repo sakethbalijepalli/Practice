@@ -1,7 +1,5 @@
 package Neetcode.neetcode150.bitmanipulation;
 
-import java.util.Arrays;
-
 public class ReverseBits {
 
     void main() {
