@@ -1,7 +1,5 @@
 package Neetcode.neetcode150.arrays;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class NumberOfSubArrays {
     void main() {
